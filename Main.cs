@@ -12,15 +12,27 @@ namespace ProjetOOP_Hivers_2024
 {
     public partial class Main : Form
     {
+        private LotoQuebec lotoQuebecForm;
+        private CurrencyConverter currencyForm;
+        private TemperatureConverter tempForm;
+        private readonly Timer timer = new Timer();
+
         public Main()
         {
             InitializeComponent();
+            timer.Interval = 1000;
+            timer.Start();
         }
 
         private void Main_Load(object sender, EventArgs e)
         {
-            //add dateTime to menuStrip
-            
+            timer.Tick += new EventHandler(timer_Tick);
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            var time = DateTime.Now;
+            clockLabel.Text = time.ToShortDateString() + "  " + time.ToLongTimeString();
         }
 
         private void btnLotoQuebec_Paint(object sender, PaintEventArgs e)
@@ -46,35 +58,49 @@ namespace ProjetOOP_Hivers_2024
             graph.DrawImage(img, 0, e.ClipRectangle.Height / 2 - img.Height / 2);
         }
 
+        //make sure only one instance of each form is open
+        private void OpenForm<T>(ref T form) where T : Form, new()
+        {
+            if (form == null || form.IsDisposed)
+            {
+                form = new T();
+                form.MdiParent = this;
+                form.Show();
+            }
+            else
+            {
+                form.WindowState = FormWindowState.Normal;
+                form.BringToFront();
+            }
+        }
+
         private void btnLotoQuebec_Click(object sender, EventArgs e)
         {
-            //import LotoQuebec form
-            var loto = new LotoQuebec();
-            loto.MdiParent = this;
-            loto.Show();
+            OpenForm<LotoQuebec>(ref lotoQuebecForm);
         }
 
         private void btnCurrency_Click(object sender, EventArgs e)
         {
-            //import CurrencyConverter form
-            var currency = new CurrencyConverter();
-            currency.MdiParent = this;
-            currency.Show();
+            OpenForm<CurrencyConverter>(ref currencyForm);
         }
 
         private void btnTemperature_Click(object sender, EventArgs e)
         {
-            //import TemperatureConverter form
-            var temp = new TemperatureConverter();
-            temp.MdiParent = this;
-            temp.Show();
-
+            OpenForm<TemperatureConverter>(ref tempForm);
         }
 
+        //resizing parent form will resize all child forms
         private void Main_SizeChanged(object sender, EventArgs e)
         {
-            //resizing parent form will resize all child forms
             this.MdiChildren.ToList().ForEach(f => f.Size = (this.Size - new Size(20, 110)));
+        }
+
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Voulez-vous vraiment quitter l'application?", "Quit", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

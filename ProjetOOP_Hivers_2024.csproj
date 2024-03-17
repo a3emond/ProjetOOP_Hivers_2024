@@ -119,5 +119,8 @@
   <ItemGroup>
     <None Include="bin\Debug\Assets\lotoQuebecBackground.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\Assets\mainBackground.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

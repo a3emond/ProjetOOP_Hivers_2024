@@ -58,6 +58,7 @@
     <Compile Include="ChildForms\LotoQuebec\LotoQuebec.Designer.cs">
       <DependentUpon>LotoQuebec.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChildForms\LotoQuebec\SlotMachineAnimation.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

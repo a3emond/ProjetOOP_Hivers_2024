@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjetOOP_Hivers_2024.ChildForms.LotoQuebec;
 
 namespace ProjetOOP_Hivers_2024
 {
@@ -14,10 +15,12 @@ namespace ProjetOOP_Hivers_2024
     public partial class LotoQuebec : Form
     {
         public Random random = new Random();
+        public System.Windows.Forms.Label[] labels;
         public LotoQuebec()
         {
             InitializeComponent();
             this.Paint += Confetti_Paint;
+            labels = new System.Windows.Forms.Label[] { label1, label2, label3, label4, label5, label6, label7 };
 
 
         }
@@ -28,109 +31,6 @@ namespace ProjetOOP_Hivers_2024
 
         }
 
-        public async void Animate()
-        {
-            for (int i = 0; i < 30; i++)
-            {
-                label1.Text = random.Next(51).ToString();
-                label2.Text = random.Next(51).ToString();
-                label3.Text = random.Next(51).ToString();
-                label4.Text = random.Next(51).ToString();
-                label5.Text = random.Next(51).ToString();
-                label6.Text = random.Next(51).ToString();
-                label7.Text = random.Next(51).ToString();
-                this.Refresh();
-
-                await Task.Delay(20);
-            }
-            label1.BackColor = Color.Chartreuse;
-            label1.ForeColor = Color.WhiteSmoke;
-            //put real value here
-            for (int i = 0; i < 30; i++)
-            {
-                
-                label2.Text = random.Next(51).ToString();
-                label3.Text = random.Next(51).ToString();
-                label4.Text = random.Next(51).ToString();
-                label5.Text = random.Next(51).ToString();
-                label6.Text = random.Next(51).ToString();
-                label7.Text = random.Next(51).ToString();
-                this.Refresh();
-
-                await Task.Delay(20);
-            }
-            label2.BackColor = Color.Chartreuse;
-            label2.ForeColor = Color.WhiteSmoke;
-            //put real value here
-            for (int i = 0; i < 30; i++)
-            {
-                
-                label3.Text = random.Next(51).ToString();
-                label4.Text = random.Next(51).ToString();
-                label5.Text = random.Next(51).ToString();
-                label6.Text = random.Next(51).ToString();
-                label7.Text = random.Next(51).ToString();
-                this.Refresh();
-
-                await Task.Delay(20);
-            }
-            label3.BackColor = Color.Chartreuse;
-            label3.ForeColor = Color.WhiteSmoke;
-            //put real value here
-            for (int i = 0; i < 30; i++)
-            {
-                
-                label4.Text = random.Next(51).ToString();
-                label5.Text = random.Next(51).ToString();
-                label6.Text = random.Next(51).ToString();
-                label7.Text = random.Next(51).ToString();
-                this.Refresh();
-
-                await Task.Delay(20);
-            }
-            label4.BackColor = Color.Chartreuse;
-            label4.ForeColor = Color.WhiteSmoke;
-            //put real value here
-            for (int i = 0; i < 30; i++)
-            {
-                
-                label5.Text = random.Next(51).ToString();
-                label6.Text = random.Next(51).ToString();
-                label7.Text = random.Next(51).ToString();
-                this.Refresh();
-
-                await Task.Delay(20);
-            }
-            label5.BackColor = Color.Chartreuse;
-            label5.ForeColor = Color.WhiteSmoke;
-            //put real value here
-            for (int i = 0; i < 30; i++)
-            {
-                
-                label6.Text = random.Next(51).ToString();
-                label7.Text = random.Next(51).ToString();
-                this.Refresh();
-
-                await Task.Delay(20);
-            }
-            label6.BackColor = Color.Chartreuse;
-            label6.ForeColor = Color.WhiteSmoke;
-            //put real value here
-            for (int i = 0; i < 30; i++)
-            {
-                
-                label7.Text = random.Next(51).ToString();
-                this.Refresh();
-
-                await Task.Delay(20);
-            }
-            label7.BackColor = Color.Chartreuse;
-            label7.ForeColor = Color.WhiteSmoke;
-            //put real value here
-
-
-
-        }
 
         private void btnTirage_Click(object sender, EventArgs e)
         {
@@ -138,11 +38,14 @@ namespace ProjetOOP_Hivers_2024
             {
                 if (control is Label)
                 {
+                    //reset the color of the label
                     control.BackColor = Color.White;
                     control.ForeColor = Color.Black;
                 }   
             }
-            Animate();
+            //start the animation + feed winning numbers
+            var animation = new SlotMachineAnimation(labels,GetProperRandom());
+            animation.Animate();
             
         }
 
@@ -155,6 +58,26 @@ namespace ProjetOOP_Hivers_2024
             e.Graphics.DrawImage(img1, 2*img1.Width, 0);
 
             e.Graphics.DrawImage(img2,0,this.Height/2);
+        }
+        //get the real value of the loto quebec
+        private int[] GetProperRandom()
+        {
+            int[] randoms = new int[7];
+            List<int> avaliablesNumbers = new List<int>();
+            //make a list of all numbers from 1 to 50
+            for (int i = 1; i <= 50; i++)
+            {
+                avaliablesNumbers.Add(i);
+            }
+            //get 6 random numbers from the list whitout repeating
+            for (int i = 0; i < 7; i++)
+            {
+                //get a random number from the list using random index of the list to select the number
+                randoms[i] = avaliablesNumbers[random.Next(avaliablesNumbers.Count)];
+                //remove the number from the list
+                avaliablesNumbers.Remove(randoms[i]);
+            }
+            return randoms;
         }
     }
 }

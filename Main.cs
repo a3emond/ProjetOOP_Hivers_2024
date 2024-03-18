@@ -23,7 +23,7 @@ namespace ProjetOOP_Hivers_2024
             timer.Interval = 1000;
             timer.Start();
         }
-
+        
         private void Main_Load(object sender, EventArgs e)
         {
             timer.Tick += new EventHandler(timer_Tick);
@@ -102,5 +102,7 @@ namespace ProjetOOP_Hivers_2024
                 Application.Exit();
             }
         }
+
+        
     }
 }

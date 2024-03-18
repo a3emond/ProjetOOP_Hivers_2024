@@ -47,7 +47,7 @@
             // 
             this.toolStrip1.AutoSize = false;
             this.toolStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.toolStrip1.BackgroundImage = global::ProjetOOP_Hivers_2024.Properties.Resources.currencyConvertorBackground1;
+            this.toolStrip1.BackgroundImage = global::ProjetOOP_Hivers_2024.Properties.Resources.redSmoke;
             this.toolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnLotoQuebec,
@@ -108,8 +108,8 @@
             this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabel2.ForeColor = System.Drawing.Color.White;
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(158, 61);
-            this.toolStripLabel2.Text = "Currency Convertor";
+            this.toolStripLabel2.Size = new System.Drawing.Size(157, 61);
+            this.toolStripLabel2.Text = "Currency Converter";
             // 
             // toolStripSeparator2
             // 
@@ -131,11 +131,11 @@
             // 
             // toolStripLabel3
             // 
-            this.toolStripLabel3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripLabel3.ForeColor = System.Drawing.Color.White;
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(222, 61);
-            this.toolStripLabel3.Text = "Temperature Convertor";
+            this.toolStripLabel3.Size = new System.Drawing.Size(186, 61);
+            this.toolStripLabel3.Text = "Temperature Converter";
             // 
             // clockLabel
             // 

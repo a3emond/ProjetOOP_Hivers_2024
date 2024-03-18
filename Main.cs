@@ -46,7 +46,7 @@ namespace ProjetOOP_Hivers_2024
         {
             //print image on button
             var graph = e.Graphics;
-            Image img = Image.FromFile("Assets/deviseConverter.png");
+            Image img = Image.FromFile("Assets/currencyExchange.png");
             graph.DrawImage(img, 0, e.ClipRectangle.Height / 2 - img.Height / 2);
         }
 
@@ -54,7 +54,7 @@ namespace ProjetOOP_Hivers_2024
         {
             //print image on button
             var graph = e.Graphics;
-            Image img = Image.FromFile("Assets/tempConverter.png");
+            Image img = Image.FromFile("Assets/tempConvert.png");
             graph.DrawImage(img, 0, e.ClipRectangle.Height / 2 - img.Height / 2);
         }
 

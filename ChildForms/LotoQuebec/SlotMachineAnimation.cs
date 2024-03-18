@@ -14,6 +14,13 @@ namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
         private Stack<System.Windows.Forms.Label> _labelStack = new Stack<System.Windows.Forms.Label>();
         private Random _random = new Random();
         private int[] _winningNumbers;
+        public int[] WinningNumbers
+        {
+            get
+            {
+                return _winningNumbers;
+            }
+        }
 
         public SlotMachineAnimation(System.Windows.Forms.Label[] labels, int[] winningNumbers)
         {

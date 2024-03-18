@@ -34,19 +34,13 @@ namespace ProjetOOP_Hivers_2024
 
         private void btnTirage_Click(object sender, EventArgs e)
         {
-            foreach (Control control in this.Controls)
-            {
-                if (control is Label)
-                {
-                    //reset the color of the label
-                    control.BackColor = Color.White;
-                    control.ForeColor = Color.Black;
-                }   
-            }
+            ResetLabelsColors();
             //start the animation + feed winning numbers
             var animation = new SlotMachineAnimation(labels,GetProperRandom());
             animation.Animate();
-            
+            //save the winning numbers to the history
+            var log = new HistoryHandler(animation.WinningNumbers);
+            log.LogWinningEntry();
         }
 
         private void Confetti_Paint(object sender, PaintEventArgs e)
@@ -78,6 +72,18 @@ namespace ProjetOOP_Hivers_2024
                 avaliablesNumbers.Remove(randoms[i]);
             }
             return randoms;
+        }
+        //utility Functions
+        private void ResetLabelsColors()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is Label)
+                {
+                    control.BackColor = Color.White;
+                    control.ForeColor = Color.Black;
+                }
+            }
         }
     }
 }

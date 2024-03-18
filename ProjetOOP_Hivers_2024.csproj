@@ -52,6 +52,7 @@
     <Compile Include="ChildForms\CurrencyConverter\CurrencyConverter.Designer.cs">
       <DependentUpon>CurrencyConverter.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChildForms\LotoQuebec\HistoryHandler.cs" />
     <Compile Include="ChildForms\LotoQuebec\LotoQuebec.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,7 +125,7 @@
     <None Include="bin\Debug\Assets\mainBackground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ChildForms\LotoQuebec\SavedFiles\" />
+    <Folder Include="ChildForms\LotoQuebec\History\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\Assets\redBackground.jpg" />

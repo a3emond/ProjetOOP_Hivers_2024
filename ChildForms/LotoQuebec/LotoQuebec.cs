@@ -14,13 +14,14 @@ namespace ProjetOOP_Hivers_2024
     
     public partial class LotoQuebec : Form
     {
+        public bool switchConfetti = false;
         public Random random = new Random();
         public System.Windows.Forms.Label[] labels;
         public LotoQuebec()
         {
             InitializeComponent();
-            this.Paint += Confetti_Paint;
             labels = new System.Windows.Forms.Label[] { label1, label2, label3, label4, label5, label6, label7 };
+            
 
 
         }
@@ -31,30 +32,24 @@ namespace ProjetOOP_Hivers_2024
 
         }
 
-
-        private void btnTirage_Click(object sender, EventArgs e)
+        private async void btnTirage_Click(object sender, EventArgs e)
         {
+            this.Paint -= new PaintEventHandler(Confetti_Paint);
+            this.Refresh();
             ResetLabelsColors();
             //start the animation + feed winning numbers
-            var animation = new SlotMachineAnimation(labels,GetProperRandom());
-            animation.Animate();
+            var animation = new SlotMachineAnimation(labels, GetProperRandom());
+            animation.Animate(); // Await the completion of the animation
             //save the winning numbers to the history
             var log = new HistoryHandler(animation.WinningNumbers);
             log.LogWinningEntry();
+            //confetti
+            await Task.Delay(7000); // Delay for 1 second
+            this.Paint += new PaintEventHandler(Confetti_Paint);
+            this.Refresh();
         }
 
-        private void Confetti_Paint(object sender, PaintEventArgs e)
-        {
-            Image img1 = Image.FromFile("Assets/confetti.png");
-            Image img2 = Image.FromFile("Assets/confettiCone.png");
-            e.Graphics.DrawImage(img1,0,0);
-            e.Graphics.DrawImage(img1, img1.Width, 0);
-            e.Graphics.DrawImage(img1, 2*img1.Width, 0);
-
-            e.Graphics.DrawImage(img2,0,this.Height/2);
-        }
-        //get the real value of the loto quebec
-        private int[] GetProperRandom()
+        private int[] GetProperRandom()//winningNumbers
         {
             int[] randoms = new int[7];
             List<int> avaliablesNumbers = new List<int>();
@@ -84,6 +79,22 @@ namespace ProjetOOP_Hivers_2024
                     control.ForeColor = Color.Black;
                 }
             }
+        }
+        private void Confetti_Paint(object sender, PaintEventArgs e)
+        {
+            Image img1 = Image.FromFile("Assets/confetti.png");
+            Image img2 = Image.FromFile("Assets/confettiCone.png");
+            e.Graphics.DrawImage(img1, 0, 0);
+            e.Graphics.DrawImage(img1, img1.Width, 0);
+            e.Graphics.DrawImage(img1, 2 * img1.Width, 0);
+
+            e.Graphics.DrawImage(img2, 0, this.Height / 2);
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            CustomMessageBox customMessageBox = new CustomMessageBox();
+            customMessageBox.ShowDialog();
         }
     }
 }

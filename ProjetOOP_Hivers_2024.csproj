@@ -52,6 +52,12 @@
     <Compile Include="ChildForms\CurrencyConverter\CurrencyConverter.Designer.cs">
       <DependentUpon>CurrencyConverter.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChildForms\LotoQuebec\CustomMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildForms\LotoQuebec\CustomMessageBox.Designer.cs">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChildForms\LotoQuebec\HistoryHandler.cs" />
     <Compile Include="ChildForms\LotoQuebec\LotoQuebec.cs">
       <SubType>Form</SubType>
@@ -76,6 +82,9 @@
     </Compile>
     <EmbeddedResource Include="ChildForms\CurrencyConverter\CurrencyConverter.resx">
       <DependentUpon>CurrencyConverter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildForms\LotoQuebec\CustomMessageBox.resx">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChildForms\LotoQuebec\LotoQuebec.resx">
       <DependentUpon>LotoQuebec.cs</DependentUpon>
@@ -124,9 +133,7 @@
   <ItemGroup>
     <None Include="bin\Debug\Assets\mainBackground.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ChildForms\LotoQuebec\History\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="bin\Debug\Assets\redBackground.jpg" />
   </ItemGroup>
@@ -147,6 +154,7 @@
     <Content Include="bin\Debug\Assets\tempConvert.png" />
     <Content Include="bin\Debug\Assets\tempConverter.png" />
     <Content Include="bin\Debug\Assets\thermometer.ico" />
+    <Content Include="ChildForms\LotoQuebec\History\history.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

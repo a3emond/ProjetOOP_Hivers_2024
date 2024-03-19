@@ -5,9 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
 {
+
+    
+
+
     internal class HistoryHandler
     {
         private const string _filePath = "../../ChildForms/LotoQuebec/History/history.txt";
@@ -27,7 +32,7 @@ namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
             //constructor for writing to the file
             if (!File.Exists(_filePath))
             {
-                File.Create(_filePath);
+                File.Create(_filePath).Close();
             }
             this._winningNumbers = winningNumbers;
         }
@@ -41,7 +46,10 @@ namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
                 winningNumbers += number + ";";
             }
             File.AppendAllText(_filePath,
-                $"649,{_date.ToShortDateString()},{_time.ToShortTimeString()},{winningNumbers}");
+                $"649,{_date.ToShortDateString()}," +
+                $"{_time.ToLongTimeString()}," +
+                $"{winningNumbers}\n"); // Add a newline
+
         }
 
         private string[] ReadWinningEntries()
@@ -49,13 +57,27 @@ namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
             return File.ReadAllLines(_filePath);
         }
 
-        public void PrintWinningEntries()
+        public List<string> PrintWinningEntries()
         {
+            List<string> list = new List<string>();
             foreach (string entry in ReadWinningEntries())
             {
-                entry.Split(',');// a terminer...........
+                list.Add(FormatString(entry.Split(',')));
+            }
+
+            return list;
+        }
+        //utility
+        private string FormatString(string[] splitEntry)
+        {
+            if (splitEntry.Length == 4)
+            {
+                return string.Format("{0,10}{1,35}{2,25}{3,30}\n", splitEntry[0], splitEntry[1], splitEntry[2], splitEntry[3]);
+            }
+            else
+            {
+                return "Invalid entry\n";
             }
         }
-
     }
 }

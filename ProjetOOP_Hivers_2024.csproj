@@ -66,6 +66,7 @@
       <DependentUpon>LotoQuebec.cs</DependentUpon>
     </Compile>
     <Compile Include="ChildForms\LotoQuebec\SlotMachineAnimation.cs" />
+    <Compile Include="ChildForms\TemperatureConverter\Thermometer.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

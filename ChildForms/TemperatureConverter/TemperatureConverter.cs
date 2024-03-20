@@ -33,35 +33,130 @@ namespace ProjetOOP_Hivers_2024
             
 
         }
-
-        private void cValue_KeyDown(object sender, KeyEventArgs e)
+        //ici j'ai utilise les keyPress au lieu de keyDown parce que
+        //keyDown est appele avant que le text change, ce qui cause des problemes
+        //pour verifier si le text est dans le bon range
+        private void cValue_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //keyboard handler numbers range -90 to 100
+            HandleKeys(e, cValue, -90, 100);
+        }
+
+        private void fValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //keyboard handler numbers range -130 to 212
+            HandleKeys(e, fValue, -130, 212);
+        }
+
+        private void kValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //keyboard handler numbers range 183 to 373
+            HandleKeys(e, kValue, 0, 373);
+        }
+        // j'ai finalement decide d'utiliser key up parce que
+        // textchanged est appele a chaque fois que le text change
+        // dans chaque textbox, ce qui cause des problemes de curseur
+        private void cValue_KeyUp(object sender, KeyEventArgs e)
+        {
+            //update fValue and kValue
+            //update thermometer
+            if (cValue.Text == "")
+            {
+                celsiusTemperature = 0;
+                fValue.Text = (celsiusTemperature * 9 / 5 + 32).ToString();
+                kValue.Text = (celsiusTemperature + 273).ToString();
+                Invalidate();
+            }
+            if (int.TryParse(cValue.Text, out int number))
+            {
+                celsiusTemperature = number;
+                fValue.Text = (celsiusTemperature * 9 / 5 + 32).ToString();
+                kValue.Text = (celsiusTemperature + 273).ToString();
+                Invalidate();
+            }
+        }
+
+        private void fValue_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (fValue.Text == "")
+            {
+                celsiusTemperature = 0;
+                cValue.Text = celsiusTemperature.ToString();
+                kValue.Text = (celsiusTemperature + 273).ToString();
+                Invalidate();
+            }
+
+            if (int.TryParse(fValue.Text, out int number))
+            {
+                celsiusTemperature = (number - 32) * 5 / 9;
+                cValue.Text = celsiusTemperature.ToString();
+                kValue.Text = (celsiusTemperature + 273).ToString();
+                Invalidate();
+            }
+        }
+
+        private void kValue_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (kValue.Text == "")
+            {
+                celsiusTemperature = 0;
+                cValue.Text = celsiusTemperature.ToString();
+                fValue.Text = (celsiusTemperature * 9 / 5 + 32).ToString();
+                Invalidate();
+            }
+
+            if (int.TryParse(kValue.Text, out int number))
+            {
+                celsiusTemperature = number - 273;
+                cValue.Text = celsiusTemperature.ToString();
+                fValue.Text = (celsiusTemperature * 9 / 5 + 32).ToString();
+                Invalidate();
+            }
+        }
+
+        //utility Functions
+        private void HandleKeys(KeyPressEventArgs e, TextBox textBox, int min, int max)
+        {
+            if (!(char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar) || e.KeyChar == 189 ||e.KeyChar == '-'))
+            {
+                //189 is the ascii code for the minus sign
+                e.Handled = true;
+            }
+
+            //check for minus sign
+            if (e.KeyChar == 189 || e.KeyChar == '-')
+            {
+                //if the minus sign is not the first character, ignore the key press
+                if (textBox.Text.Length > 0)
+                {
+                    e.Handled = true;
+                }
+            }
+
+            // Concatenate the pressed key to the current text
+            string newText = textBox.Text + e.KeyChar.ToString();
+            if (IsInRange(newText, min, max))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private bool IsInRange(string value, int min, int max)
+        {
+            if (int.TryParse(value, out int number))
+            {
+                // Check if the number is within the valid range
+                if (number < min || number > max)
+                {
+                    // If the number is out of range, ignore the key press
+                    return true;
+                }
+
+            }
+            return false;
 
         }
 
-        private void fValue_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void textBox3_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void cValue_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fValue_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

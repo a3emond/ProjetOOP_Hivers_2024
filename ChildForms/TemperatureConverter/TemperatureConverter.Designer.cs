@@ -81,6 +81,7 @@
             this.cValue.TabIndex = 3;
             this.cValue.Text = "0";
             this.cValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cValue_KeyDown);
             this.cValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cValue_KeyPress);
             this.cValue.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cValue_KeyUp);
             // 
@@ -95,6 +96,7 @@
             this.fValue.TabIndex = 4;
             this.fValue.Text = "32";
             this.fValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.fValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fValue_KeyDown);
             this.fValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fValue_KeyPress);
             this.fValue.KeyUp += new System.Windows.Forms.KeyEventHandler(this.fValue_KeyUp);
             // 
@@ -109,6 +111,7 @@
             this.kValue.TabIndex = 5;
             this.kValue.Text = "273";
             this.kValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.kValue.KeyDown += new System.Windows.Forms.KeyEventHandler(this.kValue_KeyDown);
             this.kValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.kValue_KeyPress);
             this.kValue.KeyUp += new System.Windows.Forms.KeyEventHandler(this.kValue_KeyUp);
             // 

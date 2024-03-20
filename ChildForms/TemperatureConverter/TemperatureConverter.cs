@@ -14,24 +14,22 @@ namespace ProjetOOP_Hivers_2024
 {
     public partial class TemperatureConverter : Form
     {
-        public int celsiusTemperature = 70;
+        public int celsiusTemperature;
 
         public TemperatureConverter()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
 
         private void TemperatureConverter_Load(object sender, EventArgs e)
         {
             this.Size = Parent.Size - new Size(5, 5);
-
         }
 
         private void TemperatureConverter_Paint(object sender, PaintEventArgs e)
         {
             var thermometer = new Thermometer(e.Graphics, 150, 100, -celsiusTemperature);
-            
-
         }
         //ici j'ai utilise les keyPress au lieu de keyDown parce que
         //keyDown est appele avant que le text change, ce qui cause des problemes
@@ -135,7 +133,7 @@ namespace ProjetOOP_Hivers_2024
 
             // Concatenate the pressed key to the current text
             string newText = textBox.Text + e.KeyChar.ToString();
-            if (IsInRange(newText, min, max))
+            if (!IsInRange(newText, min, max))
             {
                 e.Handled = true;
             }
@@ -149,14 +147,54 @@ namespace ProjetOOP_Hivers_2024
                 if (number < min || number > max)
                 {
                     // If the number is out of range, ignore the key press
-                    return true;
+                    return false;
                 }
 
             }
-            return false;
+            return true;
 
         }
 
-        
+        private void cValue_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (IsInRange(cValue.Text,-90,100))
+                keyUpAndDownAction(cValue, e);
+        }
+
+        private void fValue_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (IsInRange(fValue.Text,-130,212))
+                keyUpAndDownAction(fValue, e);
+        }
+
+        private void kValue_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (IsInRange(kValue.Text,0,373))
+                keyUpAndDownAction(kValue, e);
+        }
+
+        private void keyUpAndDownAction(TextBox textBox, KeyEventArgs e)
+        {
+            int temp=0;
+            if (e.KeyCode == Keys.Up)
+            {
+                if (int.TryParse(textBox.Text, out temp) || textBox.Text == "")
+                {
+                    temp++;
+                    textBox.Text = temp.ToString();
+                }
+            }
+
+            if (e.KeyCode == Keys.Down)
+            {
+                if (int.TryParse(textBox.Text, out temp) || textBox.Text == "")
+                {
+                    temp--;
+                    textBox.Text = temp.ToString();
+                }
+            }
+        }
+
+
     }
 }

@@ -35,6 +35,8 @@
             this.cValue = new System.Windows.Forms.TextBox();
             this.fValue = new System.Windows.Forms.TextBox();
             this.kValue = new System.Windows.Forms.TextBox();
+            this.btnHistory = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -115,6 +117,34 @@
             this.kValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.kValue_KeyPress);
             this.kValue.KeyUp += new System.Windows.Forms.KeyEventHandler(this.kValue_KeyUp);
             // 
+            // btnHistory
+            // 
+            this.btnHistory.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnHistory.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistory.ForeColor = System.Drawing.Color.White;
+            this.btnHistory.Location = new System.Drawing.Point(599, 30);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(109, 38);
+            this.btnHistory.TabIndex = 9;
+            this.btnHistory.Text = "History";
+            this.btnHistory.UseVisualStyleBackColor = false;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSave.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(322, 30);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(194, 38);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "Save Conversion";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // TemperatureConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,6 +153,8 @@
             this.BackgroundImage = global::ProjetOOP_Hivers_2024.Properties.Resources.temperatureBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.kValue);
             this.Controls.Add(this.fValue);
             this.Controls.Add(this.cValue);
@@ -149,5 +181,7 @@
         private System.Windows.Forms.TextBox cValue;
         private System.Windows.Forms.TextBox fValue;
         private System.Windows.Forms.TextBox kValue;
+        private System.Windows.Forms.Button btnHistory;
+        private System.Windows.Forms.Button btnSave;
     }
 }

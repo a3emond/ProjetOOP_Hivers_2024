@@ -8,12 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter;
+using ProjetOOP_Hivers_2024.ChildForms.LotoQuebec;
 using ProjetOOP_Hivers_2024.ChildForms.TemperatureConverter;
 
 namespace ProjetOOP_Hivers_2024
 {
     public partial class TemperatureConverter : Form
     {
+        private string _filePath = "../../ChildForms/TemperatureConverter/XmlHistory/history.xml";
         public int celsiusTemperature;
 
         public TemperatureConverter()
@@ -195,6 +198,16 @@ namespace ProjetOOP_Hivers_2024
             }
         }
 
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            CustomMessageBox customMessageBox = new CustomMessageBox("Temp", "Date", "time", "Temperatures", _filePath);
+            customMessageBox.ShowDialog();
+        }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            var history = new XmlFileHandler(cValue.Text + "°C ; " + fValue.Text + "°F ; " + kValue.Text + "°K ; ");
+            history.WriteHistory();
+        }
     }
 }

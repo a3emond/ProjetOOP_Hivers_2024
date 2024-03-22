@@ -37,6 +37,8 @@
             this.inputSymbol = new System.Windows.Forms.Label();
             this.outputSymbol = new System.Windows.Forms.Label();
             this.Result = new System.Windows.Forms.TextBox();
+            this.btnHistory = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // fromCurrencyBox
@@ -148,6 +150,34 @@
             this.Result.Text = "0.00";
             this.Result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // btnHistory
+            // 
+            this.btnHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnHistory.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistory.ForeColor = System.Drawing.Color.White;
+            this.btnHistory.Location = new System.Drawing.Point(43, 382);
+            this.btnHistory.Name = "btnHistory";
+            this.btnHistory.Size = new System.Drawing.Size(109, 38);
+            this.btnHistory.TabIndex = 9;
+            this.btnHistory.Text = "History";
+            this.btnHistory.UseVisualStyleBackColor = false;
+            this.btnHistory.Click += new System.EventHandler(this.btnHistory_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSave.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(587, 267);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(194, 38);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Save Conversion";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // CurrencyConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,6 +185,8 @@
             this.BackgroundImage = global::ProjetOOP_Hivers_2024.Properties.Resources.currencyConvertorBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(973, 450);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.Result);
             this.Controls.Add(this.outputSymbol);
             this.Controls.Add(this.inputSymbol);
@@ -184,5 +216,7 @@
         private System.Windows.Forms.Label inputSymbol;
         private System.Windows.Forms.Label outputSymbol;
         private System.Windows.Forms.TextBox Result;
+        private System.Windows.Forms.Button btnHistory;
+        private System.Windows.Forms.Button btnSave;
     }
 }

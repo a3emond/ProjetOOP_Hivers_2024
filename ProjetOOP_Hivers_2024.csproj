@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChildForms\CurrencyConverter\BinFileHandler.cs" />
     <Compile Include="ChildForms\CurrencyConverter\Conversion.cs" />
     <Compile Include="ChildForms\CurrencyConverter\CurrencyConverter.cs">
       <SubType>Form</SubType>
@@ -68,6 +69,7 @@
     </Compile>
     <Compile Include="ChildForms\LotoQuebec\SlotMachineAnimation.cs" />
     <Compile Include="ChildForms\TemperatureConverter\Thermometer.cs" />
+    <Compile Include="ChildForms\TemperatureConverter\XmlFileHandler.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,7 +137,11 @@
   <ItemGroup>
     <None Include="bin\Debug\Assets\mainBackground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ChildForms\CurrencyConverter\BinHistory\" />
+    <Folder Include="ChildForms\LotoQuebec\History\" />
+    <Folder Include="ChildForms\TemperatureConverter\XmlHistory\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\Assets\redBackground.jpg" />
   </ItemGroup>
@@ -156,7 +162,6 @@
     <Content Include="bin\Debug\Assets\tempConvert.png" />
     <Content Include="bin\Debug\Assets\tempConverter.png" />
     <Content Include="bin\Debug\Assets\thermometer.ico" />
-    <Content Include="ChildForms\LotoQuebec\History\history.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

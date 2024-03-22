@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter;
+using ProjetOOP_Hivers_2024.ChildForms.LotoQuebec;
 
 namespace ProjetOOP_Hivers_2024
 {
@@ -16,6 +17,7 @@ namespace ProjetOOP_Hivers_2024
         private List<string> currencyList1;
         private List<string> currencyList2;
         private Dictionary<string, string> symbols;
+        private string _filePath = "../../ChildForms/CurrencyConverter/BinHistory/binHistory.bin";
         public CurrencyConverter()
         {
             
@@ -186,6 +188,19 @@ namespace ProjetOOP_Hivers_2024
                 Result.Text = "Invalid input";
             }
         }
-        
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string input = GetCurrencyCode(fromCurrencyBox.SelectedItem.ToString()) + ": " + inputBox.Text;
+            string output = GetCurrencyCode(toCurrencyBox.SelectedItem.ToString()) + ": " + Result.Text;
+            var history = new BinFileHandler($"From {input} to {output}");
+            history.WriteBinHistory();
+        }
+
+        private void btnHistory_Click(object sender, EventArgs e)
+        {
+            CustomMessageBox customMessageBox = new CustomMessageBox("Exchange", "Date", "time", "Conversion", _filePath);
+            customMessageBox.ShowDialog();
+        }
     }
 }

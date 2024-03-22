@@ -16,14 +16,12 @@ namespace ProjetOOP_Hivers_2024
     {
         public bool switchConfetti = false;
         public Random random = new Random();
-        public System.Windows.Forms.Label[] labels;
+        public Label[] labels;
+        private const string _filePath = "../../ChildForms/LotoQuebec/History/history.txt";
         public LotoQuebec()
         {
             InitializeComponent();
-            labels = new System.Windows.Forms.Label[] { label1, label2, label3, label4, label5, label6, label7 };
-            
-
-
+            labels = new Label[] { label1, label2, label3, label4, label5, label6, label7 };
         }
 
         private void LotoQuebec_Load(object sender, EventArgs e)
@@ -93,7 +91,7 @@ namespace ProjetOOP_Hivers_2024
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            CustomMessageBox customMessageBox = new CustomMessageBox();
+            CustomMessageBox customMessageBox = new CustomMessageBox("LotoQuebec","Date","time","WinningNumbers",_filePath);
             customMessageBox.ShowDialog();
         }
     }

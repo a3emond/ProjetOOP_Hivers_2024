@@ -19,7 +19,7 @@ namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
         private DateTime _date = DateTime.Now;
         private DateTime _time = DateTime.Now;
         private int[] _winningNumbers;
-        private string[] _winningEntries;
+        //private string[] _winningEntries;
 
         
 
@@ -54,6 +54,10 @@ namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
 
         private string[] ReadWinningEntries()
         {
+            if (!File.Exists(_filePath))
+            {
+                return new string[] { "No entries found" };
+            }
             return File.ReadAllLines(_filePath);
         }
 

@@ -17,6 +17,7 @@ namespace ProjetOOP_Hivers_2024
         private List<string> currencyList1;
         private List<string> currencyList2;
         private Dictionary<string, string> symbols;
+        private Dictionary<string, Image> currenciesPictures;
         private string _filePath = "../../ChildForms/CurrencyConverter/BinHistory/binHistory.bin";
         public CurrencyConverter()
         {
@@ -39,6 +40,25 @@ namespace ProjetOOP_Hivers_2024
                 {"NOK", "kr"},  // Norwegian Krone
                 {"KRW", "₩"},   // South Korean Won
                 {"INR", "₹"}    // Indian Rupee
+            };
+            currenciesPictures = new Dictionary<string, Image>
+            {
+                {"USD", Image.FromFile("Assets/currencies/USD.jpg")},   // US Dollar
+                {"EUR", Image.FromFile("Assets/currencies/EUR.jpg")},   // Euro
+                {"JPY", Image.FromFile("Assets/currencies/JPY.jpg")},   // Japanese Yen
+                {"GBP", Image.FromFile("Assets/currencies/GBP.jpg")},   // British Pound Sterling
+                {"AUD", Image.FromFile("Assets/currencies/AUD.jpg")},  // Australian Dollar
+                {"CAD", Image.FromFile("Assets/currencies/CAD.jpg")},  // Canadian Dollar
+                {"CHF", Image.FromFile("Assets/currencies/CHF.jpg")}, // Swiss Franc
+                {"CNY", Image.FromFile("Assets/currencies/CNY.jpg")},   // Chinese Yuan
+                {"SEK", Image.FromFile("Assets/currencies/SEK.jpg")},  // Swedish Krona
+                {"NZD", Image.FromFile("Assets/currencies/NZD.jpg")}, // New Zealand Dollar
+                {"MXN", Image.FromFile("Assets/currencies/MXN.jpg")},// Mexican Peso
+                {"SGD", Image.FromFile("Assets/currencies/SGD.jpg")},  // Singapore Dollar
+                {"HKD", Image.FromFile("Assets/currencies/HKD.jpg")}, // Hong Kong Dollar
+                {"NOK", Image.FromFile("Assets/currencies/NOK.jpg")},  // Norwegian Krone
+                {"KRW", Image.FromFile("Assets/currencies/KRW.jpg")},   // South Korean Won
+                {"INR", Image.FromFile("Assets/currencies/INR.jpg")}    // Indian Rupee
             };
             currencyList1 = new List<string>
             {
@@ -123,8 +143,11 @@ namespace ProjetOOP_Hivers_2024
             }
             //update currency input symbol
             if (fromCurrencyBox.SelectedItem != null)
-            {
-                inputSymbol.Text = GetSymbol(GetCurrencyCode(fromCurrencyBox.SelectedItem.ToString()));
+            { 
+                var currencyCode = GetCurrencyCode(fromCurrencyBox.SelectedItem.ToString());
+                var symbol = GetSymbol(currencyCode);
+                inputSymbol.Text = symbol;
+                fromPictureBox.Image = currenciesPictures[currencyCode];
             }
         }
 
@@ -139,7 +162,12 @@ namespace ProjetOOP_Hivers_2024
             //update currency output symbol
             if (toCurrencyBox.SelectedItem != null)
             {
-                outputSymbol.Text = GetSymbol(GetCurrencyCode(toCurrencyBox.SelectedItem.ToString()));
+                var currencyCode = GetCurrencyCode(toCurrencyBox.SelectedItem.ToString());
+                var symbol = GetSymbol(currencyCode);
+                outputSymbol.Text = symbol;
+                toPictureBox.Image = currenciesPictures[currencyCode];
+            
+                outputSymbol.Text = symbol;
             }
 
         }

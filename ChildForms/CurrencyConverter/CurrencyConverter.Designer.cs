@@ -39,6 +39,10 @@
             this.Result = new System.Windows.Forms.TextBox();
             this.btnHistory = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.fromPictureBox = new System.Windows.Forms.PictureBox();
+            this.toPictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.fromPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // fromCurrencyBox
@@ -178,6 +182,26 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // fromPictureBox
+            // 
+            this.fromPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fromPictureBox.Location = new System.Drawing.Point(121, 120);
+            this.fromPictureBox.Name = "fromPictureBox";
+            this.fromPictureBox.Size = new System.Drawing.Size(100, 50);
+            this.fromPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.fromPictureBox.TabIndex = 11;
+            this.fromPictureBox.TabStop = false;
+            // 
+            // toPictureBox
+            // 
+            this.toPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.toPictureBox.Location = new System.Drawing.Point(692, 120);
+            this.toPictureBox.Name = "toPictureBox";
+            this.toPictureBox.Size = new System.Drawing.Size(100, 50);
+            this.toPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.toPictureBox.TabIndex = 12;
+            this.toPictureBox.TabStop = false;
+            // 
             // CurrencyConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,6 +209,8 @@
             this.BackgroundImage = global::ProjetOOP_Hivers_2024.Properties.Resources.currencyConvertorBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(973, 450);
+            this.Controls.Add(this.toPictureBox);
+            this.Controls.Add(this.fromPictureBox);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnHistory);
             this.Controls.Add(this.Result);
@@ -201,6 +227,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CurrencyConvertor";
             this.Load += new System.EventHandler(this.CurrencyConverter_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.fromPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,5 +246,7 @@
         private System.Windows.Forms.TextBox Result;
         private System.Windows.Forms.Button btnHistory;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.PictureBox fromPictureBox;
+        private System.Windows.Forms.PictureBox toPictureBox;
     }
 }

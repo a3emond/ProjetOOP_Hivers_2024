@@ -208,7 +208,9 @@ namespace ProjetOOP_Hivers_2024
             if (decimal.TryParse(inputBox.Text, out decimal amount))
             {
                 Conversion conversion = new Conversion();
-                decimal convertedAmount = conversion.Convert(amount, GetCurrencyCode(fromCurrencyBox.SelectedItem.ToString()), GetCurrencyCode(toCurrencyBox.Text));
+                decimal convertedAmount = conversion.Convert(amount,
+                    GetCurrencyCode(fromCurrencyBox.SelectedItem.ToString()),
+                    GetCurrencyCode(toCurrencyBox.Text));
                 Result.Text = convertedAmount.ToString("0.00");
             }
             else
@@ -227,7 +229,8 @@ namespace ProjetOOP_Hivers_2024
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            CustomMessageBox customMessageBox = new CustomMessageBox("Exchange", "Date", "time", "Conversion", _filePath);
+            CustomMessageBox customMessageBox = new CustomMessageBox(
+                "Exchange", "Date", "time", "Conversion", _filePath);
             customMessageBox.ShowDialog();
         }
     }

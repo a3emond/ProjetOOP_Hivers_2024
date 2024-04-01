@@ -91,7 +91,8 @@ namespace ProjetOOP_Hivers_2024
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            CustomMessageBox customMessageBox = new CustomMessageBox("LotoQuebec","Date","time","WinningNumbers",_filePath);
+            CustomMessageBox customMessageBox = new CustomMessageBox(
+                "LotoQuebec","Date","time","WinningNumbers",_filePath);
             customMessageBox.ShowDialog();
         }
     }

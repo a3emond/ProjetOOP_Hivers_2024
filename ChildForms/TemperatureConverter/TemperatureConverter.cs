@@ -200,13 +200,15 @@ namespace ProjetOOP_Hivers_2024
 
         private void btnHistory_Click(object sender, EventArgs e)
         {
-            CustomMessageBox customMessageBox = new CustomMessageBox("Temp", "Date", "time", "Temperatures", _filePath);
+            CustomMessageBox customMessageBox = new CustomMessageBox(
+                "Temp", "Date", "time", "Temperatures", _filePath);
             customMessageBox.ShowDialog();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var history = new XmlFileHandler(cValue.Text + "°C ; " + fValue.Text + "°F ; " + kValue.Text + "°K ; ");
+            var history = new XmlFileHandler(
+                cValue.Text + "°C ; " + fValue.Text + "°F ; " + kValue.Text + "°K ; ");
             history.WriteHistory();
         }
     }

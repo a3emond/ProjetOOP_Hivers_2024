@@ -9,10 +9,6 @@ using System.Windows.Forms;
 
 namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
 {
-
-    
-
-
     internal class HistoryHandler
     {
         private const string _filePath = "../../ChildForms/LotoQuebec/History/history.txt";
@@ -76,7 +72,8 @@ namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
         {
             if (splitEntry.Length == 4)
             {
-                return string.Format("{0,10}{1,35}{2,25}{3,30}\n", splitEntry[0], splitEntry[1], splitEntry[2], splitEntry[3]);
+                return string.Format("{0,10}{1,35}{2,25}{3,30}\n",
+                    splitEntry[0], splitEntry[1], splitEntry[2], splitEntry[3]);
             }
             else
             {

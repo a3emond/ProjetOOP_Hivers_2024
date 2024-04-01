@@ -138,7 +138,6 @@
             this.Name = "CustomMessageBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Winning Results History";
-            this.Load += new System.EventHandler(this.CustomMessageBox_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

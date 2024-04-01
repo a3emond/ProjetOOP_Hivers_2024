@@ -70,9 +70,5 @@ namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
             
         }
 
-        private void CustomMessageBox_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

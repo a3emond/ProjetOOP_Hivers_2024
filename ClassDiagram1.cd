@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter.BinFileHandler">
+    <Position X="8" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAACAAAgAAAABAACAAABAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>ChildForms\CurrencyConverter\BinFileHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter.Conversion">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>ChildForms\CurrencyConverter\Conversion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter.XmlFileHandler">
+    <Position X="7.75" Y="13.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAgAAAABAACAAABAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ChildForms\TemperatureConverter\XmlFileHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.CurrencyConverter">
+    <Position X="5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAEEQAAKICABgAgASKBCUCAAAAJDAAAIAgAAIAQAA=</HashCode>
+      <FileName>ChildForms\CurrencyConverter\CurrencyConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.LotoQuebec">
+    <Position X="0.5" Y="8.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ECIAAAAACiAAABAAAACCAABCAAAABACAAAQgAAAAAAA=</HashCode>
+      <FileName>ChildForms\LotoQuebec\LotoQuebec.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.TemperatureConverter">
+    <Position X="5.25" Y="8.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAEBAAAGAAIBQAAgCCgAACREAABBAAgIAgAAMBACg=</HashCode>
+      <FileName>ChildForms\TemperatureConverter\TemperatureConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.Main">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABQAgA1BQSAAAAAAAEiIAAACEAAAEAlAAABAIAAQAAA=</HashCode>
+      <FileName>Main.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.Program">
+    <Position X="0.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.ChildForms.LotoQuebec.CustomMessageBox">
+    <Position X="2.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACCABBAAAgCCAAACAACAIAAAAAADAAAAAAA=</HashCode>
+      <FileName>ChildForms\LotoQuebec\CustomMessageBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.ChildForms.LotoQuebec.HistoryHandler">
+    <Position X="2.5" Y="11" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAgAAAABAACAAAAAAAAMIAABAAAAAAAAAA=</HashCode>
+      <FileName>ChildForms\LotoQuebec\HistoryHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.ChildForms.LotoQuebec.SlotMachineAnimation">
+    <Position X="2.5" Y="8.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAIQAAAAAAAAABAAAAAAAAAE=</HashCode>
+      <FileName>ChildForms\LotoQuebec\SlotMachineAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.ChildForms.TemperatureConverter.Thermometer">
+    <Position X="7.75" Y="8.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAQAIIAQARADEAACAgAAACoAAAAIABAAAAAAAAAA=</HashCode>
+      <FileName>ChildForms\TemperatureConverter\Thermometer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.Properties.Resources" Collapsed="true">
+    <Position X="0.5" Y="16.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAACgAACAAAAAAABEAAAAQAAAAABAAAAAEAQAIQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetOOP_Hivers_2024.Properties.Settings" Collapsed="true">
+    <Position X="0.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

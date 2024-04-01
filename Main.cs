@@ -97,7 +97,8 @@ namespace ProjetOOP_Hivers_2024
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Voulez-vous vraiment quitter l'application?", "Quit", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Voulez-vous vraiment quitter l'application?",
+                    "Quit", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 Application.Exit();
             }

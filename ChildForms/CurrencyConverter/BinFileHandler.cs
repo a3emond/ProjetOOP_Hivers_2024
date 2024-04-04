@@ -27,7 +27,7 @@ namespace ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter
 
             using (BinaryWriter writer = new BinaryWriter(File.Open(_filePath, FileMode.Append)))
             {
-                writer.Write(_entry);
+                writer.Write(FormatEntry(_entry));
             }
         }
 
@@ -48,23 +48,21 @@ namespace ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter
                 }
             }
 
-            return FormatCurrencyHistory(entries).ToArray();
+            return entries.ToArray();
         }
 
 
-        private List<string> FormatCurrencyHistory(List<string> entries)
+        private string FormatEntry(string entry)
         {
-            List<string> formattedEntries = new List<string>();
-            foreach (var str in entries)
-            {
-                formattedEntries.Add(string.Format("{0,10}{1,25}{2,25}{3,30}\n",
+            
+                entry = string.Format("{0,10}{1,25}{2,25}{3,30}\n",
                     "Exchange",
                     _date.ToShortDateString(),
                     _time.ToLongTimeString(),
-                    str
-                    ));
-            }
-            return formattedEntries;
+                    entry
+                    );
+            
+            return entry;
         }
     }
 }

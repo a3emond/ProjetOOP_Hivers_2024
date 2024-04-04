@@ -224,7 +224,7 @@ namespace ProjetOOP_Hivers_2024
             string input = GetCurrencyCode(fromCurrencyBox.SelectedItem.ToString()) + ": " + inputBox.Text;
             string output = GetCurrencyCode(toCurrencyBox.SelectedItem.ToString()) + ": " + Result.Text;
             var history = new BinFileHandler($"From {input} to {output}");
-            history.WriteBinHistory();
+            history.Write();
         }
 
         private void btnHistory_Click(object sender, EventArgs e)

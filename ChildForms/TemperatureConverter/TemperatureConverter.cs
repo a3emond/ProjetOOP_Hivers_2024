@@ -209,7 +209,7 @@ namespace ProjetOOP_Hivers_2024
         {
             var history = new XmlFileHandler(
                 cValue.Text + "°C ; " + fValue.Text + "°F ; " + kValue.Text + "°K ; ");
-            history.WriteHistory();
+            history.Write();
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter
 {
-    internal class BinFileHandler
+    internal class BinFileHandler : IHistoryHandler
     {
         private string _filePath = "../../ChildForms/CurrencyConverter/BinHistory/binHistory.bin";
         private string _entry;
@@ -18,7 +18,7 @@ namespace ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter
 
         }
 
-        public void WriteBinHistory()
+        public void Write()
         {
             if (!File.Exists(_filePath))
             {
@@ -33,7 +33,7 @@ namespace ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter
 
 
 
-        public List<string> ReadBinHistory()
+        public string[] Read()
         {
             List<string> entries = new List<string>();
 
@@ -48,7 +48,7 @@ namespace ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter
                 }
             }
 
-            return FormatCurrencyHistory(entries);
+            return FormatCurrencyHistory(entries).ToArray();
         }
 
 

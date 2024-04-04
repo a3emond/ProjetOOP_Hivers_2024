@@ -52,19 +52,19 @@ namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
             if (filePath.Contains(".txt"))
             {
                 var history = new HistoryHandler();
-                var items = history.PrintWinningEntries();
+                var items = history.Print();
                 History.DataSource = items;
             }
             else if (filePath.Contains(".bin"))
             {
                 var history = new BinFileHandler(filePath);
-                var items = history.ReadBinHistory();
+                var items = history.Read();
                 History.DataSource = items;
             }
             else if (filePath.Contains(".xml"))
             {
                 var history = new XmlFileHandler(filePath);
-                var items = history.ReadHistory();
+                var items = history.Read();
                 History.DataSource = items;
             }
             

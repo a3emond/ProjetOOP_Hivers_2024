@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter
 {
-    internal class XmlFileHandler
+    internal class XmlFileHandler : IHistoryHandler
     {
         private string _filePath = "../../ChildForms/TemperatureConverter/XmlHistory/history.xml";
         private string _entry;
@@ -17,7 +17,7 @@ namespace ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter
             _entry = entry;
         }
 
-        public void WriteHistory()
+        public void Write()
         {
             XmlDocument doc = new XmlDocument();
 
@@ -46,7 +46,7 @@ namespace ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter
         }
     
 
-        public List<string> ReadHistory()
+        public string[] Read()
         {
             List<string> entries = new List<string>();
 
@@ -70,7 +70,8 @@ namespace ProjetOOP_Hivers_2024.ChildForms.CurrencyConverter
                 }
             }
 
-            return entries;
+
+            return entries.ToArray(); ;
         }
         //just for showing that I am able to do it
         public void  WriteHistoryWithTxtFiles()

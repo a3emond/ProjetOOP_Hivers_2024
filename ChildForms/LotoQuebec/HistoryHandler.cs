@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
 {
-    internal class HistoryHandler
+    internal class HistoryHandler : IHistoryHandler
     {
         private const string _filePath = "../../ChildForms/LotoQuebec/History/history.txt";
         private DateTime _date = DateTime.Now;
@@ -34,7 +34,7 @@ namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
         }
 
 
-        public void LogWinningEntry()
+        public void Write()
         {
             string winningNumbers = "";
             foreach (int number in _winningNumbers)
@@ -48,7 +48,7 @@ namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
 
         }
 
-        private string[] ReadWinningEntries()
+        public string[] Read()
         {
             if (!File.Exists(_filePath))
             {
@@ -57,10 +57,10 @@ namespace ProjetOOP_Hivers_2024.ChildForms.LotoQuebec
             return File.ReadAllLines(_filePath);
         }
 
-        public List<string> PrintWinningEntries()
+        public List<string> Print()
         {
             List<string> list = new List<string>();
-            foreach (string entry in ReadWinningEntries())
+            foreach (string entry in Read())
             {
                 list.Add(FormatString(entry.Split(',')));
             }

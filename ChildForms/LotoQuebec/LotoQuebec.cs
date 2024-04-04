@@ -40,7 +40,7 @@ namespace ProjetOOP_Hivers_2024
             animation.Animate(); // Await the completion of the animation
             //save the winning numbers to the history
             var log = new HistoryHandler(animation.WinningNumbers);
-            log.LogWinningEntry();
+            log.Write();
             //confetti
             await Task.Delay(7000); // Delay for 1 second
             this.Paint += new PaintEventHandler(Confetti_Paint);

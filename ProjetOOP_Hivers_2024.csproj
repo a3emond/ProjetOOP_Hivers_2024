@@ -72,6 +72,7 @@
     <Compile Include="ChildForms\LotoQuebec\SlotMachineAnimation.cs" />
     <Compile Include="ChildForms\TemperatureConverter\Thermometer.cs" />
     <Compile Include="ChildForms\TemperatureConverter\XmlFileHandler.cs" />
+    <Compile Include="IHistoryHandler.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
